@@ -1,0 +1,13 @@
+version: "3.8"
+
+services:
+  web:
+    build:
+      context: .
+      target: runner        # usa la etapa de producción
+    image: my-nextjs-app    # nombre opcional de la imagen
+    ports:
+      - "3001:3000"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
